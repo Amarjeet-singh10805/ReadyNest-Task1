@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Builder</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/builder.css" />
+</head>
+<body>
+
+  <div class="builder-topbar">
+    <div class="container builder-topbar-inner">
+      <div class="flex items-center gap-3">
+        <button class="btn btn-ghost btn-icon" onclick="window.location.href='/dashboard.html'" title="Back to dashboard">←</button>
+        <input type="text" class="builder-title-input" id="form-title-input" placeholder="Untitled Form" />
+      </div>
+      <div class="builder-topbar-actions">
+        <span class="save-status" id="save-status"></span>
+        <button class="btn btn-secondary" id="preview-btn">👁️ Preview</button>
+        <button class="btn btn-primary" id="save-btn">Save Form</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="builder-layout">
+
+    <!-- LEFT: Field palette -->
+    <div class="palette-panel">
+      <h4>Add Fields</h4>
+      <div class="palette-item" draggable="true" data-field-type="text">
+        <div class="palette-item-icon">🔤</div> Text
+      </div>
+      <div class="palette-item" draggable="true" data-field-type="email">
+        <div class="palette-item-icon">✉️</div> Email
+      </div>
+      <div class="palette-item" draggable="true" data-field-type="number">
+        <div class="palette-item-icon">🔢</div> Number
+      </div>
+      <div class="palette-item" draggable="true" data-field-type="phone">
+        <div class="palette-item-icon">📞</div> Phone
+      </div>
+      <div class="palette-item" draggable="true" data-field-type="textarea">
+        <div class="palette-item-icon">📝</div> Paragraph
+      </div>
+      <div class="palette-item" draggable="true" data-field-type="date">
+        <div class="palette-item-icon">📅</div> Date
+      </div>
+      <div class="palette-item" draggable="true" data-field-type="checkbox">
+        <div class="palette-item-icon">☑️</div> Checkboxes
+      </div>
+      <div class="palette-item" draggable="true" data-field-type="radio">
+        <div class="palette-item-icon">🔘</div> Multiple Choice
+      </div>
+      <div class="palette-item" draggable="true" data-field-type="dropdown">
+        <div class="palette-item-icon">▾</div> Dropdown
+      </div>
+      <div class="palette-item" draggable="true" data-field-type="url">
+        <div class="palette-item-icon">🔗</div> URL/Link
+      </div>
+
+      <p class="field-hint" style="margin-top:14px;">Drag a field onto the canvas, or click it to add to the end.</p>
+    </div>
+
+    <!-- MIDDLE: Canvas -->
+    <div class="canvas-panel">
+      <div class="card card-padded form-meta-card">
+        <div class="field-group" style="margin-bottom: 14px;">
+          <label class="field-label">Form description</label>
+          <textarea class="textarea" id="form-description-input" placeholder="Tell respondents what this form is about..." rows="2"></textarea>
+        </div>
+      </div>
+
+      <div class="canvas-dropzone" id="canvas-dropzone">
+        <div id="fields-list"></div>
+        <div class="canvas-empty" id="canvas-empty-state">
+          <div style="font-size:36px; margin-bottom:8px;">🧩</div>
+          <p><strong>No fields yet</strong></p>
+          <p>Drag a field type from the left panel to get started</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Settings -->
+    <div class="settings-panel">
+      <div class="card card-padded" style="margin-bottom: 16px;">
+        <h4>Theme Color</h4>
+        <div class="color-swatches" id="color-swatches">
+          <div class="color-swatch active" style="background:#6366f1" data-color="#6366f1"></div>
+          <div class="color-swatch" style="background:#10b981" data-color="#10b981"></div>
+          <div class="color-swatch" style="background:#f59e0b" data-color="#f59e0b"></div>
+          <div class="color-swatch" style="background:#ef4444" data-color="#ef4444"></div>
+          <div class="color-swatch" style="background:#3b82f6" data-color="#3b82f6"></div>
+          <div class="color-swatch" style="background:#a855f7" data-color="#a855f7"></div>
+          <div class="color-swatch" style="background:#ec4899" data-color="#ec4899"></div>
+          <div class="color-swatch" style="background:#14b8a6" data-color="#14b8a6"></div>
+        </div>
+      </div>
+
+      <div class="card card-padded">
+        <h4>Form Settings</h4>
+        <div class="toggle-row">
+          <span>Published</span>
+          <label class="switch">
+            <input type="checkbox" id="is-published-toggle" checked />
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <span>Accepting responses</span>
+          <label class="switch">
+            <input type="checkbox" id="accepts-responses-toggle" checked />
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/builder.js"></script>
+</body>
+</html>
