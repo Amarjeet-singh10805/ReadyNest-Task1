@@ -30,7 +30,7 @@ formapp/
 │   ├── config.py               # Environment-based configuration
 │   ├── db.py                   # MySQL connection pool + auto schema setup
 │   ├── requirements.txt
-│   ├── .env.example             # Copy to .env and fill in your secrets
+│   ├── .env
 │   ├── routes/
 │   │   ├── auth.py             # Register / login / profile
 │   │   ├── forms.py            # Form CRUD + builder persistence
